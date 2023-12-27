@@ -41,14 +41,14 @@ class DQNetwork(nn.Module):
 		super(DQNetwork, self).__init__()
 		self.fc1 = nn.Linear(self.STATE_SIZE, 64)
 		self.fc2 = nn.Linear(64, 64)
-		self.fc4 = nn.Linear(64, self.ACTION_SIZE)
+		self.fc3 = nn.Linear(64, self.ACTION_SIZE)
 
 	def forward(self, state):
 		x = self.fc1(state)
 		x = F.relu(x)
 		x = self.fc2(x)
 		x = F.relu(x)
-		return self.fc4(x)
+		return self.fc3(x)
 	
 class Agent:
 
