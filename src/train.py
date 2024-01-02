@@ -27,29 +27,35 @@ def plot_convergence(scores, fuel_consumption, landings, angles):
     plt.subplot(4, 1, 3)
     plt.plot(landings)
     plt.title('Andamento della precisione di atteraggio nel Tempo')
-    plt.xlabel('Episodi')
+    plt.xlabel('Batch di 25 episodi')
     plt.ylabel('Precisione atteraggi')
     
     plt.subplot(4, 1, 4)
     plt.plot(angles)
     plt.title('Andamento della stabilità nel Tempo')
-    plt.xlabel('Episodi')
+    plt.xlabel('Batch di 25 episodi')
     plt.ylabel('Stablità lunar-lander')
 
     plt.tight_layout()
     plt.show()
 
+
+# Custom env
 env = gym.make('env/LunarLander-v0')
-agent = Agent(eps=EPS, lr=5e-3, batch_size=128)
+
+# Normal env
+# env = gym.make('LunarLander-v2')
+
+agent = Agent(eps=EPS, lr=5e-4, batch_size=128)
 
 scores = []
 fuels = []
 landings = []
 angles = []
-angle_window = deque(maxlen=25)
-scores_window = deque(maxlen=25)
-fuel_window = deque(maxlen=25)
-landings_window = deque(maxlen=25)
+angle_window = deque(maxlen=100)
+scores_window = deque(maxlen=100)
+fuel_window = deque(maxlen=100)
+landings_window = deque(maxlen=100)
 
 for _ in range(N_EPISODES):
 	state = env.reset()[0]
@@ -61,11 +67,12 @@ for _ in range(N_EPISODES):
 	for t in range(MAX_STEPS_PER_EPISODE):
 		action = agent.get_action(state)
 		new_state, reward, terminated, truncated, info = env.step(action)
+
 		angle.append(abs(new_state[4]))
 		if action == 1 | action == 3:
-			fuel += 0.1
+			fuel += 1
 		elif action == 2:
-			fuel += 0.5
+			fuel += 1
 		agent.save_transition(state, action, reward, new_state, terminated)
 		agent.learn()
 		state = new_state
@@ -84,7 +91,7 @@ for _ in range(N_EPISODES):
 	fuel_window.append(fuel)
 
 	print('\rEpisode {}\tAverage Score: {:.2f}\tAvg Loss: {:.2f}\tFuel: {:.2f}\tAngle: {:.2f}\tLandings accuracy: {:.2f}'.format(_, np.mean(scores_window), np.mean(agent.loss_window), np.mean(fuel_window), np.mean(angle_window), np.mean(landings_window)), end="")
-	if _ % 25 == 0:
+	if _ % 100 == 0:
 		print('\rEpisode {}\tAverage Score: {:.2f}\tAvg Loss: {:.2f}\tFuel: {:.2f}\tAngle: {:.2f}\tLandings accuracy: {:.2f}'.format(_, np.mean(scores_window), np.mean(agent.loss_window), np.mean(fuel_window), np.mean(angle_window), np.mean(landings_window)))
 		scores.append(np.mean(scores_window))
 		fuels.append(np.mean(fuel_window))

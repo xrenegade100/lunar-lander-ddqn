@@ -65,8 +65,6 @@ class Agent:
 		self.__eps = eps
 		self.__eps_dec = eps_dec
 		self.__eps_end = eps_min
-		self.cnt_epsilon = 0
-		self.cnt_total = 0
 		self.loss_window = deque(maxlen=100)
 	
 	def load(self, path):
@@ -80,12 +78,13 @@ class Agent:
 	
 	def learn(self):
 		self.__step = (self.__step + 1) % self.__learn_every
-		
+
 		if self.__step == 0 and self.__memory.get_counter() >= self.__batch_size:
 			transitions = self.__memory.get_batch(self.__batch_size)
 			self.__learn(transitions)
 
 	def __learn(self, transitions):
+		self.__qnetwork.train()
 		states, actions, rewards, next_states, terminals = transitions
 
 		# Get max estimated Q values (for next states) from target network
@@ -111,12 +110,9 @@ class Agent:
 			target_param.data.copy_(self.__tau * local_param.data + (1.0-self.__tau) * target_param.data)
 	
 	def get_action(self, state):
-		self.cnt_total += 1
 		rand = random.uniform(0, 1)
 		# print(rand, self.__eps)
 		if rand < self.__eps:
-			self.cnt_epsilon += 1
-
 			# Reduce eps
 			if self.__eps > self.__eps_end:
 				self.__eps = self.__eps * self.__eps_dec
@@ -127,7 +123,6 @@ class Agent:
 		self.__qnetwork.eval()
 		with torch.no_grad():
 			action = self.__qnetwork(state)
-		self.__qnetwork.train()
 		
 		# Reduce eps
 		if self.__eps > self.__eps_end:

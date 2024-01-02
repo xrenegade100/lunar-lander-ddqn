@@ -26,11 +26,11 @@ for _ in range(N_EPISODES):
 		state = new_state
 		angle.append(abs(new_state[4]))
 		if action == 1 | action == 3:
-			fuel += 0.1
+			fuel += 1
 		elif action == 2:
-			fuel += 0.5
+			fuel += 1
 		score += reward
 		if terminated or truncated:
 			landing_accuracy = np.sqrt(state[0] * state[0] + state[1] * state[1])
-			print("Episode {:.2f} \tReward: {:.2f}\tFuel: {:.1f}\tAngle: {:.2f}\tLanding accuracy: {:.2f}".format(_, score, fuel, np.mean(angle), landing_accuracy))
+			print("Episode {} \tReward: {:.2f}\tFuel: {:.1f}\tAngle: {:.2f}\tLanding accuracy: {:.2f}".format(_, score, fuel, np.mean(angle), landing_accuracy))
 			break
