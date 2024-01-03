@@ -5,7 +5,7 @@ from collections import deque
 import env
 import matplotlib.pyplot as plt
 
-N_EPISODES = 1000
+N_EPISODES = 2000
 MAX_STEPS_PER_EPISODE = 1000
 EPS = 1.0
 
@@ -15,25 +15,25 @@ def plot_convergence(scores, fuel_consumption, landings, angles):
     plt.subplot(4, 1, 1)
     plt.plot(scores)
     plt.title('Andamento delle Ricompense nel Tempo')
-    plt.xlabel('Batch di 25 episodi')
+    plt.xlabel('Episodi x1000')
     plt.ylabel('Ricompense')
     
     plt.subplot(4, 1, 2)
     plt.plot(fuel_consumption)
     plt.title('Consumo di Carburante nel Tempo')
-    plt.xlabel('Batch di 25 episodi')
+    plt.xlabel('Episodi x1000')
     plt.ylabel('Carburante')
 
     plt.subplot(4, 1, 3)
     plt.plot(landings)
     plt.title('Andamento della precisione di atteraggio nel Tempo')
-    plt.xlabel('Batch di 25 episodi')
+    plt.xlabel('Episodi x1000')
     plt.ylabel('Precisione atteraggi')
     
     plt.subplot(4, 1, 4)
     plt.plot(angles)
     plt.title('Andamento della stabilità nel Tempo')
-    plt.xlabel('Batch di 25 episodi')
+    plt.xlabel('Episodi x1000')
     plt.ylabel('Stablità lunar-lander')
 
     plt.tight_layout()
