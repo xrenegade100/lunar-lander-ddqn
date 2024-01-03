@@ -2,7 +2,8 @@ import gymnasium as gym
 import numpy as np
 from agent import Agent
 from collections import deque
-import env
+# IMPORTANT: if you wish to use the custom environment, uncomment the following line
+# import env
 import matplotlib.pyplot as plt
 
 N_EPISODES = 2000
@@ -15,37 +16,33 @@ def plot_convergence(scores, fuel_consumption, landings, angles):
     plt.subplot(4, 1, 1)
     plt.plot(scores)
     plt.title('Andamento delle Ricompense nel Tempo')
-    plt.xlabel('Episodi x1000')
+    plt.xlabel('Batch di 25 episodi')
     plt.ylabel('Ricompense')
     
     plt.subplot(4, 1, 2)
     plt.plot(fuel_consumption)
     plt.title('Consumo di Carburante nel Tempo')
-    plt.xlabel('Episodi x1000')
+    plt.xlabel('Batch di 25 episodi')
     plt.ylabel('Carburante')
 
     plt.subplot(4, 1, 3)
     plt.plot(landings)
     plt.title('Andamento della precisione di atteraggio nel Tempo')
-    plt.xlabel('Episodi x1000')
+    plt.xlabel('Batch di 25 episodi')
     plt.ylabel('Precisione atteraggi')
     
     plt.subplot(4, 1, 4)
     plt.plot(angles)
     plt.title('Andamento della stabilità nel Tempo')
-    plt.xlabel('Episodi x1000')
+    plt.xlabel('Batch di 25 episodi')
     plt.ylabel('Stablità lunar-lander')
 
     plt.tight_layout()
     plt.show()
 
 
-# Custom env
-env = gym.make('env/LunarLander-v0')
-
-# Normal env
-# env = gym.make('LunarLander-v2')
-
+# env = gym.make('env/LunarLander-v0')
+env = gym.make('LunarLander-v2')
 agent = Agent(eps=EPS, lr=5e-4, batch_size=128)
 
 scores = []
