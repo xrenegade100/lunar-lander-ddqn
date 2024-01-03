@@ -1,4 +1,7 @@
 > This project was developed during the academic year 2023/2024 as part of the Artificial Intelligence course instructed by Professor Vincenzo Deufemia @ Università degli Studi di Salerno.
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <img src="https://skillicons.dev/icons?i=py,pytorch," />
 
@@ -53,6 +56,20 @@ https://github.com/xrenegade100/lunar-lander-ddqn/blob/80bbcfe19ec444e9a6c345adc
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/xrenegade100"><img src="https://avatars.githubusercontent.com/u/11615441?v=4?s=100" width="100px;" alt="Antonio Scognamiglio"/><br /><sub><b>Antonio Scognamiglio</b></sub></a><br /><a href="#projectManagement-xrenegade100" title="Project Management">📆</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 
