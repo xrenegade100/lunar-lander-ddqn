@@ -1,6 +1,6 @@
 > This project was developed during the academic year 2023/2024 as part of the Artificial Intelligence course instructed by Professor Vincenzo Deufemia @ Università degli Studi di Salerno.
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <img src="https://skillicons.dev/icons?i=py,pytorch," />
@@ -62,6 +62,7 @@ https://github.com/xrenegade100/lunar-lander-ddqn/blob/80bbcfe19ec444e9a6c345adc
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/xrenegade100"><img src="https://avatars.githubusercontent.com/u/11615441?v=4?s=100" width="100px;" alt="Antonio Scognamiglio"/><br /><sub><b>Antonio Scognamiglio</b></sub></a><br /><a href="#projectManagement-xrenegade100" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/alfcan"><img src="https://avatars.githubusercontent.com/u/64324979?v=4?s=100" width="100px;" alt="Alfonso Cannavale"/><br /><sub><b>Alfonso Cannavale</b></sub></a><br /><a href="#projectManagement-alfcan" title="Project Management">📆</a></td>
     </tr>
   </tbody>
 </table>
