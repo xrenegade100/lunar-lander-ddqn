@@ -1,0 +1,4 @@
+# pip install "gymnasium[box2d]"
+gymnasium[box2d]==0.29.1
+torch==2.1.1
+matplotlib==3.4.2
